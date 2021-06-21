@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+    <Header />
     <SliceZone
       :slices="page"
       :resolver="({ sliceName }) => slices[sliceName]"
     />
+    <Footer />
   </div>
 </template>
 

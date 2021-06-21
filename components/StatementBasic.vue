@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <section>
     <h3>Statement — Basic</h3>
     <p>{{ JSON.stringify(slice) }}</p>
-  </div>
+  </section>
 </template>
 
 <script>

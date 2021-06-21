@@ -1,13 +1,28 @@
+@import 'fonts';
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
+html {
+  font-family: 'Fraktif Light', sans-serif;
+}
+section {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--background);
+}
 div {
   margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--background);
 }
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.case-study {
+  color: #fff;
 }

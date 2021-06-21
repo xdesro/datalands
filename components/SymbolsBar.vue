@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="`--background: ${slice.primary.background};`">
     <h3>Symbols Bar</h3>
     <p>{{ JSON.stringify(slice) }}</p>
   </div>

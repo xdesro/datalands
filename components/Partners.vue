@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <h3>Marquee</h3>
+  <section :style="`--background: ${slice.primary.background};`">
+    <h3>Partners</h3>
     <p>{{ JSON.stringify(slice) }}</p>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'Marquee',
+  name: 'Partners',
   props: {
     slice: Object,
   },
