@@ -17,15 +17,17 @@ export default {
   },
   css: [],
   plugins: [],
-  components: true,
+  components: false,
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/prismic',
   ],
+  build: {
+    transpile: ['vue-slicezone'],
+  },
   prismic: {
     endpoint: 'https://datalands.cdn.prismic.io/api/v2',
     modern: true,
-    /* see configuration for more */
   },
 }

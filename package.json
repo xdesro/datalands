@@ -9,11 +9,15 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style"
+    "lint": "npm run lint:js && npm run lint:style",
+    "slicemachine": "start-slicemachine --port 9999"
   },
   "dependencies": {
+    "@prismicio/vue": "^2.0.11",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "nuxt-sm": "0.0.6",
+    "vue-slicezone": "0.0.30"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
