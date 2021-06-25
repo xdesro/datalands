@@ -1,0 +1,15 @@
+.section-simple {
+  font-size: 3rem;
+  padding: 3rem 1rem;
+  &__header {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  &__content {
+    line-height: 1.125;
+    text-align: center;
+    p + p {
+      margin-top: 1em;
+    }
+  }
+}

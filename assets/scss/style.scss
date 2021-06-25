@@ -6,10 +6,8 @@
 
 @import 'components/statement-basic';
 @import 'components/case-study';
+@import 'components/section-simple';
 
-html {
-  font-family: 'Fraktif Light', sans-serif;
-}
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -17,8 +15,4 @@ html {
 section {
   // padding: 1rem;
   background-color: var(--background);
-}
-
-.case-study {
-  color: #fff;
 }
