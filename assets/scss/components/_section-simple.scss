@@ -1,9 +1,15 @@
 .section-simple {
   font-size: 3rem;
-  padding: 3rem 1rem;
+  padding: 3rem 1rem 10rem;
+  border-bottom: 1px solid currentColor;
   &__header {
     font-size: 1.5rem;
     text-transform: uppercase;
+    margin-bottom: 5rem;
+    &:after {
+      content: '↓';
+      margin-left: 2rem;
+    }
   }
   &__content {
     line-height: 1.125;
