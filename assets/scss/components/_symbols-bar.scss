@@ -1,0 +1,17 @@
+.symbols-bar {
+  padding: 5rem 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 5rem;
+  svg {
+    max-width: 3rem;
+  }
+  &--heavy {
+    grid-column-gap: 2rem;
+    svg {
+      max-width: 5.75rem;
+    }
+  }
+}

@@ -1,11 +1,15 @@
 .case-study {
   color: #fff;
   &__slides {
+    --aspect-ratio: (818 / 319);
     display: grid;
     grid-auto-flow: column;
     overflow-y: hidden;
     overflow-x: scroll;
-    height: 24rem;
+    // height: 24rem;
+
+    width: 100vw;
+    height: calc(100vw / var(--aspect-ratio));
   }
   &__slide {
     width: 100vw;
