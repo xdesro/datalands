@@ -19,8 +19,8 @@ export default {
   plugins: [],
   components: true,
   buildModules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module',
+    // '@nuxtjs/eslint-module',
+    // '@nuxtjs/stylelint-module',
     '@nuxtjs/prismic',
   ],
   build: {

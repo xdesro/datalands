@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <h3>Statement — Basic</h3>
-    <p>{{ JSON.stringify(slice) }}</p>
+  <section class="statement-basic">
+    <h2 class="statement-basic__title">{{ slice.primary.main }}</h2>
+    <footer class="statement-basic__footer">{{ slice.primary.footer }}</footer>
   </section>
 </template>
 

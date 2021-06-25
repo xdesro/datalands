@@ -1,0 +1,27 @@
+.case-study {
+  &__slides {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    height: 24rem;
+  }
+  &__slide {
+    width: 100vw;
+    max-width: unset;
+  }
+  &__meta {
+    line-height: 1.125;
+
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    display: grid;
+    justify-content: space-between;
+    padding: 3rem 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__meta-tag {
+    display: flex;
+    gap: 1ch;
+  }
+}

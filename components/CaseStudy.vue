@@ -3,8 +3,27 @@
     class="case-study"
     :style="`--background: ${slice.primary.highlight_color};`"
   >
-    <h3>Case Study</h3>
-    <p>{{ JSON.stringify(slice) }}</p>
+    <div class="case-study__slides">
+      <img
+        v-for="item in slice.items"
+        :key="item.project_image.url"
+        :src="item.project_image.url"
+        class="case-study__slide"
+      />
+    </div>
+    <div class="case-study__meta">
+      <dl>
+        <div class="case-study__meta-tag">
+          <dt>Client:</dt>
+          <dd>{{ slice.primary.client }}</dd>
+        </div>
+        <div class="case-study__meta-tag">
+          <dt>Year:</dt>
+          <dd>{{ slice.primary.project_date | getYear }}</dd>
+        </div>
+      </dl>
+      <p class="case-study__lede">{{ slice.primary.description }}</p>
+    </div>
   </section>
 </template>
 
@@ -13,6 +32,12 @@ export default {
   name: 'CaseStudy',
   props: {
     slice: Object,
+  },
+
+  filters: {
+    getYear(string) {
+      return new Date(string).getFullYear()
+    },
   },
 }
 </script>
