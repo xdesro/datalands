@@ -1,3 +1,3 @@
 <template>
-  <header>Intro section</header>
+  <header class="intro">Intro section</header>
 </template>
