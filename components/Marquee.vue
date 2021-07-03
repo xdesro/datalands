@@ -1,7 +1,10 @@
 <template>
-  <section :style="`--background: ${slice.primary.background};`">
-    <h3>Marquee</h3>
-    <p>{{ JSON.stringify(slice) }}</p>
+  <section class="marquee">
+    <div class="marquee__inner">
+      <span class="marquee__tag" v-for="{ element } in slice.items">
+        {{ element }}
+      </span>
+    </div>
   </section>
 </template>
 
