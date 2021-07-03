@@ -1,53 +1,84 @@
 .partners {
-  padding: 3rem 1rem;
-
-  font-size: 3rem;
+  font-size: 2rem;
   overflow: hidden;
   width: 100vw;
-  &__title {
-    max-width: 42rem;
-    margin-bottom: 12rem;
+  padding: 3rem 1rem;
+
+  @include screen(sm) {
+    font-size: 3rem;
   }
+  &__title {
+    margin-bottom: 8rem;
+
+    @include screen(md) {
+      max-width: 42rem;
+      margin-bottom: 12rem;
+    }
+  }
+
   &__inner {
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: 10rem;
+    grid-column-gap: 7rem;
+
+    @include screen(sm) {
+      grid-column-gap: 10rem;
+    }
   }
   &__logo-container {
-    margin-bottom: 12rem;
     position: relative;
+    margin-bottom: 8rem;
+
+    @include screen(sm) {
+      margin-bottom: 12rem;
+    }
     &:before {
-      display: block;
       position: absolute;
-      content: '';
-      left: 50%;
+      z-index: 0;
       top: 50%;
+      left: 50%;
+      display: block;
+      content: '';
       transform: translateX(-50%) translateY(-50%);
-      background-size: contain;
+      opacity: 0.5;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      z-index: 0;
-      opacity: 0.5;
+      background-size: contain;
     }
     &:nth-of-type(1) {
       &:before {
-        width: 40rem;
-        height: 44rem;
+        width: 30rem;
+        height: 33rem;
         background-image: url('~/assets/img/geometry-1.svg');
+
+        @include screen(sm) {
+          width: 40rem;
+          height: 44rem;
+        }
       }
     }
     &:nth-of-type(2) {
       &:before {
-        width: 44rem;
-        height: 44rem;
+        width: 33rem;
+        height: 33rem;
         background-image: url('~/assets/img/geometry-2.svg');
+
+        @include screen(sm) {
+          width: 44rem;
+          height: 44rem;
+        }
       }
     }
     &:nth-of-type(3) {
       &:before {
-        width: 44rem;
-        height: 44rem;
+        width: 33rem;
+        height: 3rem;
         background-image: url('~/assets/img/geometry-3.svg');
+
+        @include screen(sm) {
+          width: 44rem;
+          height: 44rem;
+        }
       }
     }
   }

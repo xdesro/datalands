@@ -1,100 +1,101 @@
 .footer {
-  background-color: #000;
-  color: #fff;
+  font-size: 1.5rem;
+  display: grid;
   padding: 1rem;
   text-transform: uppercase;
-  display: grid;
-
-  font-size: 1.5rem;
+  color: #fff;
+  background-color: #000;
   &__row-top {
     display: grid;
-
     grid-template-columns: auto auto 1fr;
     align-items: center;
     margin-bottom: 5rem;
     span {
-      justify-self: start;
       display: grid;
       grid-auto-flow: column;
-
       align-items: center;
+      justify-self: start;
       &:after {
-        content: '';
-        margin-left: 3rem;
         display: block;
-        width: 1rem;
         justify-self: end;
+        width: 1rem;
         height: 1rem;
-        border-radius: 100%;
+        margin-left: 3rem;
+        content: '';
         border: 1px solid currentColor;
+        border-radius: 100%;
       }
     }
     &:before {
-      content: '↑';
       margin-right: 3rem;
+      content: '↑';
     }
     &:after {
-      content: '';
       display: block;
-      width: 1rem;
       justify-self: end;
+      width: 1rem;
       height: 1rem;
+      content: '';
       border-radius: 100%;
       background-color: currentColor;
     }
   }
 
   &__row-bottom {
-    margin-bottom: 10rem;
     display: grid;
-
-    justify-self: end;
     grid-auto-flow: column;
     align-items: center;
-    margin-right: 25vw;
+    justify-self: end;
+    margin-bottom: 10rem;
+    // margin-right: 25vw;
     &:before,
     &:after {
-      content: '';
       width: 1.5rem;
       height: 1.5rem;
+      content: '';
       border: 1.5px solid currentColor;
       border-radius: 100%;
-      display: block;
     }
     &:before {
+      display: block;
       margin-right: 3rem;
     }
     &:after {
-      box-shadow: 2rem 0 0;
+      display: none;
       grid-column: 2;
       margin-right: 6.5rem;
+      box-shadow: 2rem 0 0;
+
+      @include screen(sm) {
+        display: block;
+      }
     }
     span {
       display: grid;
-      align-items: center;
       grid-auto-flow: column;
+      align-items: center;
       &:after {
-        content: '';
+        display: block;
         width: 1.5rem;
         height: 1.5rem;
+        margin-left: 3rem;
+        content: '';
         border: 1.5px solid currentColor;
         border-radius: 100%;
-        display: block;
-        margin-left: 3rem;
       }
     }
   }
   &__brand {
+    line-height: 1;
+    display: grid;
+    justify-self: end;
+    place-items: center;
     width: 2.5rem;
     padding: 1rem 0.5rem;
-    display: grid;
-    place-items: center;
     text-align: center;
-    justify-self: end;
-    border-radius: 100%;
-    line-height: 1;
-    border: 1px solid currentColor;
     word-break: break-all;
+    border: 1px solid currentColor;
+    border-radius: 100%;
     abbr {
       text-decoration: none;
     }

@@ -1,22 +1,23 @@
 .intro {
-  min-height: 90vh;
+  min-height: 100vh;
   background-image: url('@/assets/img/gradient.png');
   background-size: cover;
   font-size: 2rem;
+  display: grid;
+  align-content: end;
   &__title {
-    padding: 2rem 1rem 0;
-    margin-bottom: 7rem;
+    padding: 2rem 1rem 2rem;
     span {
       display: block;
     }
   }
   &__logotype {
-    font-family: 'Apoc Regular', serif;
+    font-family: $font--display;
   }
   &__logo {
     width: 100%;
     max-width: 48rem;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1rem 2rem;
   }
 }

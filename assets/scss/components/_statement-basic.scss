@@ -1,8 +1,11 @@
 .statement-basic {
-  font-size: 3rem;
   background-color: #000;
   color: #fff;
   padding: 3rem 1rem;
+  font-size: 2rem;
+  @include screen(sm) {
+    font-size: 3rem;
+  }
 
   &__title {
     margin-bottom: 10rem;

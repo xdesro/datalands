@@ -1,14 +1,18 @@
 .section-simple {
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 3rem 1rem 10rem;
   border-bottom: 1px solid currentColor;
+
+  @include screen(sm) {
+    font-size: 3rem;
+  }
   &__header {
     font-size: 1.5rem;
-    text-transform: uppercase;
     margin-bottom: 5rem;
+    text-transform: uppercase;
     &:after {
-      content: '↓';
       margin-left: 2rem;
+      content: '↓';
     }
   }
   &__content {

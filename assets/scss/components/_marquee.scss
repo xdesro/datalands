@@ -1,20 +1,29 @@
 .marquee {
   padding: 5rem 0;
   background-color: #fbcce0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 100vw;
   overflow: hidden;
+  @include screen(sm) {
+    font-size: 2rem;
+  }
   &__inner {
     display: grid;
-    grid-column-gap: 10rem;
+    grid-column-gap: 5rem;
+    @include screen(sm) {
+      grid-column-gap: 10rem;
+    }
     grid-auto-flow: column;
     padding: 0 5rem;
   }
   &__tag {
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     border: 1px solid currentColor;
     white-space: nowrap;
     border-radius: 0.75rem;
+    @include screen(sm) {
+      padding: 1rem 2rem;
+    }
     &:nth-of-type(even) {
       border-radius: 4rem;
     }
