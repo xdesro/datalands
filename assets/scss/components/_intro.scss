@@ -5,6 +5,9 @@
   font-size: 2rem;
   display: grid;
   align-content: end;
+  @include screen(sm) {
+    align-content: unset;
+  }
   &__title {
     padding: 2rem 1rem 2rem;
     span {

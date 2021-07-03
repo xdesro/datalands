@@ -51,8 +51,5 @@ export default {
       },
     }
   },
-  mounted() {
-    console.log(this.body)
-  },
 }
 </script>
