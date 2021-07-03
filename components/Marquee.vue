@@ -18,5 +18,8 @@ export default {
   props: {
     slice: Object,
   },
+  mounted() {
+    // requestAnimationFrame()
+  },
 }
 </script>

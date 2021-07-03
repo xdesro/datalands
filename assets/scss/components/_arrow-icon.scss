@@ -1,0 +1,16 @@
+.case-study__slide-action-icon {
+  .pixels-to-step path {
+    transform: none;
+    transition: transform 150ms;
+    @for $i from 1 through 16 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 30ms};
+      }
+    }
+  }
+  .case-study__slide-action:hover & {
+    .pixels-to-step path {
+      transform: translateX(0.44rem);
+    }
+  }
+}
