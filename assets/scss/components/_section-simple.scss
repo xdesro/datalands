@@ -6,6 +6,9 @@
   @include screen(sm) {
     font-size: 3rem;
   }
+  &__inner {
+    @include container;
+  }
   &__header {
     font-size: 1.5rem;
     margin-bottom: 5rem;
@@ -18,6 +21,9 @@
   &__content {
     line-height: 1.125;
     text-align: center;
+    @include screen(sm) {
+      font-size: 4.5rem;
+    }
     p + p {
       margin-top: 1em;
     }

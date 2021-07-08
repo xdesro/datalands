@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import Meanderer from 'meanderer'
 export default {
   name: 'StatementAnimated',
   props: {

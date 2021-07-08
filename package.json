@@ -19,7 +19,8 @@
     "nuxt-sm": "0.0.6",
     "sass": "^1.35.1",
     "sass-loader": "^10.1.1",
-    "vue-slicezone": "0.0.30"
+    "vue-slicezone": "0.0.30",
+    "vueloopscroll": "^0.1.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

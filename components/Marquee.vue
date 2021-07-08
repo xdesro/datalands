@@ -1,6 +1,12 @@
 <template>
-  <section class="marquee">
-    <div class="marquee__inner">
+  <section class="marquee" style="--drift: 0">
+    <vue-loop-scroll
+      class="marquee__inner"
+      direction="left"
+      :speed="15"
+      :index="0"
+      :mouse-stop="false"
+    >
       <span
         v-for="{ element } in slice.items"
         :key="element"
@@ -8,7 +14,7 @@
       >
         {{ element }}
       </span>
-    </div>
+    </vue-loop-scroll>
   </section>
 </template>
 
@@ -17,9 +23,6 @@ export default {
   name: 'Marquee',
   props: {
     slice: Object,
-  },
-  mounted() {
-    // requestAnimationFrame()
   },
 }
 </script>

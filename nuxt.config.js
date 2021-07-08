@@ -16,7 +16,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: ['~/assets/scss/style.scss'],
-  plugins: [],
+  plugins: ['~/plugins/vue-loop-scroll.js'],
   components: true,
   buildModules: [
     // '@nuxtjs/eslint-module',

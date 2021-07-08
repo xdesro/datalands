@@ -7,8 +7,12 @@
   @include screen(sm) {
     font-size: 3rem;
   }
+  &__inner {
+    @include container;
+  }
   &__title {
     margin-bottom: 8rem;
+    // @include container;
 
     @include screen(md) {
       max-width: 42rem;
@@ -16,21 +20,33 @@
     }
   }
 
-  &__inner {
+  &__slider {
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: 7rem;
+    // grid-column-gap: 7rem;
 
-    @include screen(sm) {
-      grid-column-gap: 10rem;
+    // @include screen(sm) {
+    //   grid-column-gap: 10rem;
+    // }
+    width: 100%;
+    animation: marquee 45s infinite linear;
+    @keyframes marquee {
+      to {
+        transform: translateX(-100%);
+      }
     }
   }
   &__logo-container {
     position: relative;
     margin-bottom: 8rem;
+    margin-right: 7rem;
 
     @include screen(sm) {
+      margin-right: 10rem;
       margin-bottom: 12rem;
+    }
+    @include screen(lg) {
+      margin-right: 20rem;
     }
     &:before {
       position: absolute;
@@ -45,7 +61,7 @@
       background-position: 50% 50%;
       background-size: contain;
     }
-    &:nth-of-type(1) {
+    &:nth-of-type(3n-2) {
       &:before {
         width: 30rem;
         height: 33rem;
@@ -57,7 +73,7 @@
         }
       }
     }
-    &:nth-of-type(2) {
+    &:nth-of-type(3n-1) {
       &:before {
         width: 33rem;
         height: 33rem;
@@ -69,7 +85,7 @@
         }
       }
     }
-    &:nth-of-type(3) {
+    &:nth-of-type(3n) {
       &:before {
         width: 33rem;
         height: 3rem;

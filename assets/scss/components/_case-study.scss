@@ -65,6 +65,9 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
+    @include screen(sm) {
+      width: 8rem;
+    }
     svg {
       // transform: none;
       // transition: all 200ms;
