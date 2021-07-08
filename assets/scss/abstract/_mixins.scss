@@ -1,5 +1,14 @@
 @mixin screen($breakpoint) {
-  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+  $bk: $breakpoint;
+  @if (map-get($breakpoints, $breakpoint)) {
+    $bk: map-get($breakpoints, $breakpoint);
+  }
+  @media screen and (min-width: $bk) {
     @content;
   }
+}
+@mixin container {
+  max-width: 67rem;
+  margin: 0 auto;
+  width: 100%;
 }

@@ -10,6 +10,10 @@
   }
   &__title {
     padding: 2rem 1rem 2rem;
+    @include container;
+    @include screen(sm) {
+      padding-top: 5rem;
+    }
     span {
       display: block;
     }
