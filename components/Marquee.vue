@@ -10,8 +10,8 @@
     <client-only>
       <marquee-el class="marquee__inner">
         <span
-          v-for="{ element } in slice.items"
-          :key="element"
+          v-for="({ element }, index) in slice.items"
+          :key="`${element}${index}`"
           class="marquee__tag"
         >
           {{ element }}

@@ -19,6 +19,7 @@
     "nuxt-sm": "0.0.6",
     "sass": "^1.35.1",
     "sass-loader": "^10.1.1",
+    "three": "^0.130.1",
     "vue-marquee-text-component": "^1.2.0",
     "vue-slicezone": "0.0.30"
   },
