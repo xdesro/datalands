@@ -3,47 +3,39 @@
   overflow: hidden;
   width: 100vw;
   padding: 3rem 1rem;
+  margin-bottom: -5rem;
+  z-index: -1;
+  position: relative;
 
   @include screen(sm) {
+    padding-left: 0;
+    padding-right: 0;
     font-size: 3rem;
   }
   &__inner {
     @include container;
   }
   &__title {
-    margin-bottom: 8rem;
-    // @include container;
-
     @include screen(md) {
       max-width: 42rem;
-      margin-bottom: 12rem;
+      margin-bottom: -5rem;
     }
   }
 
   &__slider {
     display: grid;
     grid-auto-flow: column;
-    // grid-column-gap: 7rem;
+    padding: 21rem 0;
 
-    // @include screen(sm) {
-    //   grid-column-gap: 10rem;
-    // }
     width: 100%;
-    animation: marquee 45s infinite linear;
-    @keyframes marquee {
-      to {
-        transform: translateX(-100%);
-      }
-    }
   }
   &__logo-container {
     position: relative;
-    margin-bottom: 8rem;
+
     margin-right: 7rem;
 
     @include screen(sm) {
       margin-right: 10rem;
-      margin-bottom: 12rem;
     }
     @include screen(lg) {
       margin-right: 20rem;
