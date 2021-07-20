@@ -21,9 +21,9 @@
   }
   @include screen(sm) {
     align-content: center;
+    height: 58rem;
   }
   @include screen(md) {
-    height: 58rem;
   }
   &__background {
     display: block;

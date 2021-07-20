@@ -11,6 +11,9 @@
     max-width: 23ch;
     margin-bottom: 15rem;
     position: relative;
+    @include screen(lg) {
+      margin-bottom: 28rem;
+    }
   }
   &__title-wrapped {
     display: inline-block;
@@ -18,9 +21,9 @@
     @include screen(540px) {
       max-width: 11ch;
     }
-    // @include screen(850px) {
-    //   max-width: unset;
-    // }
+    @include screen(850px) {
+      max-width: unset;
+    }
   }
   &__svg {
     --percent-complete: 0;
@@ -35,11 +38,26 @@
     // stroke-width: 4;
     // stroke-dasharray: 33rem;
     // stroke-dashoffset: 33rem;
-    @include screen(486px) {
-      top: 4ch;
+    // @include screen(486px) {
+    @include screen(540px) {
+      top: 3.5ch;
     }
+    @include screen(sm) {
+      padding-right: 1.5ch;
+      top: 3.3ch;
+    }
+    //   // top: 4ch;
+    //   top: 0;
+    // }
     @include screen(850px) {
-      top: 2.5ch;
+      // top: 2.5ch;
+      top: 2ch;
+    }
+    @include screen(lg) {
+      padding-right: 0;
+      stroke-width: 3;
+      width: 28rem;
+      margin-right: 4rem;
     }
   }
   &__positioned {
@@ -48,18 +66,28 @@
     position: absolute;
     top: 9.5ch;
     right: 0;
-    @include screen(486px) {
-      top: 8ch;
+    // @include screen(486px) {
+    //   top: 8ch;
+    // }
+    @include screen(540px) {
+      top: 8.5ch;
+    }
+    @include screen(sm) {
+      top: 7.5ch;
     }
     @include screen(850px) {
-      top: 6.5ch;
+      top: 6.2ch;
+      //   top: 6.5ch;
+    }
+    @include screen(lg) {
+      top: 34rem;
     }
   }
 
   &__footer {
     font-size: 1.5rem;
     line-height: 1;
-    max-width: 16ch;
+    max-width: 15ch;
     text-transform: uppercase;
   }
 }

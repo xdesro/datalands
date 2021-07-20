@@ -239,6 +239,12 @@ export default {
       t = t + 0.01
     }
     animate()
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+    }
+    window.addEventListener('resize', handleResize)
   },
   methods: {
     onResize() {},
