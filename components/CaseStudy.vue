@@ -1,6 +1,6 @@
 <template>
   <section
-    class="case-study"
+    :class="`case-study${hidden ? ' case-study--hidden' : ''}`"
     :style="`--background: ${slice.primary.highlight_color};`"
   >
     <div class="case-study__slides">
@@ -17,7 +17,7 @@
         <ArrowButton class="case-study__slide-action-icon" />
       </button>
     </div>
-    <div class="case-study__meta">
+    <div class="case-study__meta" ref="meta">
       <dl>
         <div class="case-study__meta-tag">
           <dt class="visually-hidden">Client:</dt>
@@ -28,7 +28,9 @@
           <dd>{{ slice.primary.project_date | getYear }}</dd>
         </div>
       </dl>
-      <p class="case-study__lede">{{ slice.primary.description }}</p>
+      <p class="case-study__lede" data-splitting="lines">
+        {{ slice.primary.description }}
+      </p>
     </div>
   </section>
 </template>
@@ -52,6 +54,8 @@ export default {
     return {
       currentActiveSlide: 0,
       slides: [...this.slice.items].map((item) => item.project_image),
+      observer: undefined,
+      hidden: false,
     }
   },
   computed: {
@@ -61,8 +65,22 @@ export default {
   },
   mounted() {
     this.preloadImages()
+    this.hidden = true
+    this.observer = new IntersectionObserver(this.handleObserve, {
+      threshold: 1.0,
+    })
+    this.observer.observe(this.$refs.meta)
   },
   methods: {
+    handleObserve(entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio === 1) {
+          this.hidden = false
+        } else {
+          this.hidden = true
+        }
+      })
+    },
     preloadImages() {
       this.slides.forEach((slide) => {
         const image = new Image()

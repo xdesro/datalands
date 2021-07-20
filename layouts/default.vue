@@ -1,6 +1,9 @@
 <template>
   <div>
     <Nuxt />
+    <client-only>
+      <Splitting />
+    </client-only>
   </div>
 </template>
 

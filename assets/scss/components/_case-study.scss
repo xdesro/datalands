@@ -94,8 +94,29 @@
   }
   &__meta-tag {
     text-transform: uppercase;
+    &:nth-child(2) {
+      transition-delay: 0.1s;
+    }
   }
   &__lede {
     font-family: $font--text-accent;
+  }
+  .word,
+  &__meta-tag {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0);
+    transition: all 0.8s $ease--out-expo;
+  }
+  .word {
+    display: inline-block;
+
+    transition-delay: calc(var(--line-index) * 0.1s);
+  }
+  &--hidden {
+    .word,
+    .case-study__meta-tag {
+      transform: translateY(1em);
+      clip-path: polygon(0 0%, 100% 0%, 100% 0%, 0 0%);
+    }
   }
 }
