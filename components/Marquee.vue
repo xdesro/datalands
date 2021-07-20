@@ -1,5 +1,10 @@
 <template>
-  <section class="marquee" style="--drift: 0">
+  <section
+    class="marquee"
+    :style="`--drift: 0; --background: ${
+      slice.primary.background || '#fbcce0'
+    }`"
+  >
     <MarqueeEl class="marquee__inner" :duration="30">
       <span
         v-for="({ element }, index) in slice.items"

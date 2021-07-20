@@ -1,7 +1,14 @@
 @font-face {
-  font-family: 'Fraktif Light';
-  src: url('/fonts/DLFrack.woff2') format('woff2'),
-    url('/fonts/DLFrack.woff') format('woff');
+  font-family: 'Surt Light';
+  src: url('/fonts/Surt-Light.woff2') format('woff2'),
+    url('/fonts/Surt-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Surt Light Expanded';
+  src: url('/fonts/Surt-LightExp.woff2') format('woff2'),
+    url('/fonts/Surt-LightExp.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

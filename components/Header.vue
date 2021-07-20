@@ -93,10 +93,12 @@
           gl_FragColor = vec4(color, 1.0);
       }
     </script>
-    <h1 class="intro__title">
-      <span class="intro__logotype">Datalands</span>
-      <span>Creative Studio</span>
-    </h1>
+    <div class="intro__container">
+      <h1 class="intro__title">Datalands</h1>
+      <p class="intro__headline">
+        {{ text }}
+      </p>
+    </div>
     <div class="intro__logo">
       <svg
         fill="currentColor"
@@ -120,17 +122,37 @@
 
 <script>
 import * as THREE from 'three'
+const randomInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
+const rgb = (r, g, b) => {
+  return new THREE.Vector3(r, g, b)
+}
+const R = (x, y, t) => {
+  return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t))
+}
+
+const G = (x, y, t) => {
+  return Math.floor(
+    192 +
+      64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+  )
+}
+
+const B = (x, y, t) => {
+  return Math.floor(
+    192 +
+      64 *
+        Math.sin(
+          5 * Math.sin(t / 9) +
+            ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+        )
+  )
+}
 export default {
+  props: ['text'],
   mounted() {
-    function randomInteger(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
-    function rgb(r, g, b) {
-      return new THREE.Vector3(r, g, b)
-    }
-
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.domElement.classList.add('intro__background')
@@ -149,29 +171,6 @@ export default {
     camera.position.z = 5
 
     const randomisePosition = new THREE.Vector2(1, 2)
-
-    const R = function (x, y, t) {
-      return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t))
-    }
-
-    const G = function (x, y, t) {
-      return Math.floor(
-        192 +
-          64 *
-            Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
-      )
-    }
-
-    const B = function (x, y, t) {
-      return Math.floor(
-        192 +
-          64 *
-            Math.sin(
-              5 * Math.sin(t / 9) +
-                ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
-            )
-      )
-    }
     const sNoise = this.$refs.noise.textContent
     const geometry = new THREE.PlaneGeometry(
       window.innerWidth / 2,
@@ -194,7 +193,11 @@ export default {
 
     const mesh = new THREE.Mesh(geometry, material)
     mesh.position.set(-200, 270, -280)
-    mesh.scale.multiplyScalar(3.5)
+    if (window.innerWidth < 400) {
+      mesh.scale.multiplyScalar(5)
+    } else {
+      mesh.scale.multiplyScalar(3.5)
+    }
     mesh.rotationX = -1.0
     mesh.rotationY = 0.0
     mesh.rotationZ = 0.1
@@ -206,7 +209,7 @@ export default {
     let x = randomInteger(0, 32)
     const y = randomInteger(0, 32)
 
-    const animate = function () {
+    const animate = function (ctx) {
       requestAnimationFrame(animate)
       renderer.render(scene, camera)
       mesh.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j)
@@ -232,11 +235,13 @@ export default {
         }
       }
 
-      // Increase t by a certain value every frame
       j = j + 0.01
       t = t + 0.01
     }
     animate()
+  },
+  methods: {
+    onResize() {},
   },
 }
 </script>

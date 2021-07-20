@@ -1,7 +1,9 @@
 $font--display: 'Apoc Regular', serif;
-$font--text: 'Fraktif Light', sans-serif;
+$font--text: 'Surt Light', sans-serif;
+$font--text-accent: 'Surt Light Expanded', 'Surt Light', sans-serif;
 
 $breakpoints: (
+  xs: 30.375rem,
   sm: 37.5rem,
   md: 56rem,
   lg: 75rem,
@@ -9,3 +11,8 @@ $breakpoints: (
 
 $ease--in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $ease--out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+$color--contrast: #eceef1;
+$color--neutral: #121212;
+
+$viewport: var(--viewportWidth);

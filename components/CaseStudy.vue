@@ -20,11 +20,11 @@
     <div class="case-study__meta">
       <dl>
         <div class="case-study__meta-tag">
-          <dt>Client:</dt>
+          <dt class="visually-hidden">Client:</dt>
           <dd>{{ slice.primary.client }}</dd>
         </div>
         <div class="case-study__meta-tag">
-          <dt>Year:</dt>
+          <dt class="visually-hidden">Year:</dt>
           <dd>{{ slice.primary.project_date | getYear }}</dd>
         </div>
       </dl>

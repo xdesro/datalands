@@ -18,12 +18,20 @@
 @import 'components/arrow-icon';
 @import 'components/footer';
 
+body {
+  color: $color--neutral;
+  --viewportWidth: calc(100vw - var(--scrollbarWidth));
+}
+
+section {
+  // padding: 1rem;
+  background-color: var(--background);
+}
 .container {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
 }
-section {
-  // padding: 1rem;
-  background-color: var(--background);
+.visually-hidden {
+  @include visually-hidden;
 }

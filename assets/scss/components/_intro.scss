@@ -1,10 +1,12 @@
 .intro {
-  min-height: 100vh;
-
-  font-size: 2rem;
+  height: 100vh;
+  height: -webkit-fill-available;
   display: grid;
   align-content: end;
+  grid-row-gap: 1rem;
   overflow: hidden;
+  max-width: $viewport;
+  position: relative;
   z-index: 0;
   &:before {
     content: '';
@@ -18,7 +20,10 @@
     z-index: -2;
   }
   @include screen(sm) {
-    align-content: unset;
+    align-content: center;
+  }
+  @include screen(md) {
+    height: 58rem;
   }
   &__background {
     display: block;
@@ -29,22 +34,48 @@
     height: 100vw;
     z-index: -1;
   }
-  &__title {
-    padding: 2rem 1rem 2rem;
+  &__container {
     @include container;
     @include screen(sm) {
-      padding-top: 5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-auto-flow: row;
+      align-content: space-between;
     }
-    span {
-      display: block;
+    @include screen(md) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
-  &__logotype {
+  &__title {
     font-family: $font--display;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    @include screen(sm) {
+      text-align: center;
+    }
+    @include screen(md) {
+      font-size: 5rem;
+    }
+  }
+  &__headline {
+    line-height: 1;
+    font-size: 2rem;
+    font-family: $font--text-accent;
+    @include screen(sm) {
+      max-width: 20ch;
+    }
   }
   &__logo {
     width: 100%;
-    max-width: 48rem;
+    // max-width: 48rem;
+    max-width: 70rem;
     margin: 0 auto;
     padding: 0 1rem 2rem;
   }

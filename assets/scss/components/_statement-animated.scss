@@ -14,22 +14,23 @@
   }
   &__title-wrapped {
     display: inline-block;
-    max-width: 11ch;
-    @include screen(486px) {
-      max-width: 15ch;
+    max-width: 9ch;
+    @include screen(540px) {
+      max-width: 11ch;
     }
-    @include screen(850px) {
-      max-width: unset;
-    }
+    // @include screen(850px) {
+    //   max-width: unset;
+    // }
   }
   &__svg {
     --percent-complete: 0;
     display: inline-block;
-    width: 7ch;
-    padding-right: 2ch;
+    width: 6ch;
+    padding-right: 1ch;
     stroke-width: 4;
     position: absolute;
-    top: 5.5ch;
+    // top: 5.5ch;
+    top: 4.5ch;
     right: 0;
     // stroke-width: 4;
     // stroke-dasharray: 33rem;

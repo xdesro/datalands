@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Header />
+    <Header :text="page.intro_text" />
+
     <SliceZone
-      :slices="page"
+      :slices="page.body"
       :resolver="({ sliceName }) => slices[sliceName]"
     />
     <Footer />
@@ -29,7 +30,7 @@ export default {
 
     if (document) {
       return {
-        page: document.data.body,
+        page: document.data,
         // page: document.data.body.filter(
         //   (slice) => slice.slice_type === 'statement_basic'
         // ),

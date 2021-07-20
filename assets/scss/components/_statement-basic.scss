@@ -1,8 +1,8 @@
 .statement-basic {
-  background-color: #000;
-  color: #fff;
-  padding: 3rem 1rem;
   font-size: 2rem;
+  padding: 3rem 1rem;
+  color: $color--contrast;
+  background-color: $color--neutral;
 
   @include screen(sm) {
     font-size: 3rem;
@@ -17,9 +17,9 @@
   }
 
   &__footer {
-    max-width: 16ch;
-    text-transform: uppercase;
     font-size: 1.5rem;
     line-height: 1;
+    text-transform: uppercase;
+    max-width: 15ch;
   }
 }

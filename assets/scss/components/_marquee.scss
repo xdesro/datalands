@@ -4,19 +4,12 @@
   font-size: 1.5rem;
   width: 100vw;
   overflow: hidden;
+  font-family: $font--text-accent;
   @include screen(sm) {
     font-size: 2rem;
   }
   &__inner {
     padding: 2rem 0;
-    // display: grid;
-    // grid-column-gap: 5rem;
-    // @include screen(sm) {
-    //   grid-column-gap: 10rem;
-    // }
-    // grid-auto-flow: column;
-    // padding: 0 5rem;
-    // transform: translateX(calc(var(--drift) * -1));
   }
   &__tag {
     padding: 0.75rem 1.5rem;

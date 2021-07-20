@@ -1,5 +1,5 @@
 .case-study {
-  color: #fff;
+  color: $color--contrast;
   &__slides {
     position: relative;
     display: grid;
@@ -87,14 +87,15 @@
     grid-row-gap: 2rem;
     justify-content: space-between;
     padding: 3rem 1rem;
-    text-transform: uppercase;
 
     @include screen(sm) {
       grid-template-columns: 1fr 1fr;
     }
   }
   &__meta-tag {
-    display: flex;
-    gap: 1ch;
+    text-transform: uppercase;
+  }
+  &__lede {
+    font-family: $font--text-accent;
   }
 }

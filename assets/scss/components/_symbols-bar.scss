@@ -1,23 +1,27 @@
 .symbols-bar {
   display: grid;
   grid-auto-flow: column;
-  grid-column-gap: 3rem;
+  // grid-column-gap: 3rem;
+
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 3rem 1rem;
+  max-width: 45rem;
+  margin: 0 auto;
 
   @include screen(sm) {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    grid-column-gap: 5rem;
   }
   svg {
     max-width: 3rem;
   }
   &--heavy {
-    grid-column-gap: 2rem;
     svg {
       max-width: 5.75rem;
+      @include screen(sm) {
+        max-width: 8rem;
+      }
     }
   }
 }
