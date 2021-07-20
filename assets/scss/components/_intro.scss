@@ -22,8 +22,8 @@
   @include screen(sm) {
     align-content: center;
     height: 58rem;
-  }
-  @include screen(md) {
+    max-height: 100vh;
+    max-height: -webkit-fill-available;
   }
   &__background {
     display: block;
@@ -49,8 +49,8 @@
       align-content: space-between;
     }
     @include screen(md) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
   }
   &__title {

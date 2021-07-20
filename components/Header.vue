@@ -154,14 +154,17 @@ export default {
   props: ['text'],
   mounted() {
     const renderer = new THREE.WebGLRenderer()
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(
+      this.$refs.intro.offsetWidth,
+      this.$refs.intro.offsetHeight
+    )
     renderer.domElement.classList.add('intro__background')
     this.$refs.intro.appendChild(renderer.domElement)
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / window.innerHeight,
+      this.$refs.intro.offsetWidth / this.$refs.intro.offsetHeight,
       0.1,
       1000
     )
@@ -240,9 +243,13 @@ export default {
     }
     animate()
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight
+      camera.aspect =
+        this.$refs.intro.offsetWidth / this.$refs.intro.offsetHeight
       camera.updateProjectionMatrix()
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.setSize(
+        this.$refs.intro.offsetWidth,
+        this.$refs.intro.offsetHeight
+      )
     }
     window.addEventListener('resize', handleResize)
   },
