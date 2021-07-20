@@ -10,7 +10,7 @@
     width: 100vw;
     height: calc(100vw / var(--aspect-ratio));
 
-    --aspect-ratio: (818 / 319);
+    --aspect-ratio: (818 / 386);
   }
   &__slide-container {
     $transition-timing-function: $ease--in-out-circ;
@@ -52,32 +52,17 @@
       }
     }
   }
-  &__slide {
-    // max-width: unset;
-  }
   &__slide-action {
     position: absolute;
     z-index: 2;
     right: 0;
     bottom: 0;
     width: 6rem;
-    padding: 1rem;
+    padding: 2vw 2vw 2.5vw;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    @include screen(sm) {
-      width: 8rem;
-    }
-    svg {
-      // transform: none;
-      // transition: all 200ms;
-    }
-    &:hover,
-    &:active {
-      svg {
-        // transform: translateX(4px);
-      }
-    }
+    width: 11vw;
   }
   &__meta {
     @include container;
