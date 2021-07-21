@@ -17,7 +17,11 @@ export default {
         content: 'An independent creative studio shaping complex ideas.',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+    ],
   },
   css: ['~/assets/scss/style.scss'],
   components: true,

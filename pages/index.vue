@@ -6,7 +6,12 @@
       :slices="page.body"
       :resolver="({ sliceName }) => slices[sliceName]"
     />
-    <Footer />
+    <Footer
+      :instagram="page.instagram_url"
+      :facebook="page.facebook_url"
+      :twitter="page.twitter_url"
+      :text="[page.footer_text_left, page.footer_text_right]"
+    />
   </div>
 </template>
 
