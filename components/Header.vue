@@ -212,7 +212,7 @@ export default {
     let x = randomInteger(0, 32)
     const y = randomInteger(0, 32)
 
-    const animate = function (ctx) {
+    const animate = function () {
       requestAnimationFrame(animate)
       renderer.render(scene, camera)
       mesh.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j)

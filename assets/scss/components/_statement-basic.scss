@@ -22,4 +22,20 @@
     text-transform: uppercase;
     max-width: 14ch;
   }
+  .word {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0);
+    transition: all 0.8s $ease--out-expo;
+  }
+  .word {
+    display: inline-block;
+
+    transition-delay: calc(var(--line-index) * 0.1s);
+  }
+  &--hidden {
+    .word {
+      transform: translateY(1em);
+      clip-path: polygon(0 0%, 100% 0%, 100% 0%, 0 0%);
+    }
+  }
 }
