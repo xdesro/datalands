@@ -63,6 +63,10 @@
     border: none;
     background-color: transparent;
     width: 11vw;
+    @supports (mix-blend-mode: exclusion) {
+      mix-blend-mode: exclusion;
+      color: $color--contrast;
+    }
   }
   &__meta {
     @include container;
