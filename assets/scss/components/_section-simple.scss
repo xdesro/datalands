@@ -2,7 +2,12 @@
   font-size: 2rem;
   padding: 3rem 1rem 10rem;
   border-bottom: 1px solid currentColor;
-
+  background-size: 0 0;
+  @include screen(sm) {
+    background-size: 5rem 7rem;
+  }
+  background-repeat: no-repeat;
+  background-position: 5rem calc(100% - 5rem); // background-image: url();
   &__inner {
     @include container;
   }
