@@ -166,7 +166,10 @@ export default {
       this.$refs.intro.offsetWidth,
       this.$refs.intro.offsetHeight
     )
-    renderer.domElement.classList.add('intro__background')
+    renderer.domElement.classList.add(
+      'intro__background',
+      'intro__background--unloaded'
+    )
     this.$refs.intro.appendChild(renderer.domElement)
 
     const scene = new THREE.Scene()
@@ -222,6 +225,8 @@ export default {
     const y = randomInteger(0, 32)
 
     const animate = function () {
+      renderer.domElement.classList.remove('intro__background--unloaded')
+
       requestAnimationFrame(animate)
       renderer.render(scene, camera)
       mesh.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j)
