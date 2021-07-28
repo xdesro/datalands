@@ -23,7 +23,7 @@
     max-width: 14ch;
   }
   .word {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 115%, 0 115%);
     transform: translateY(0);
     transition: all 0.8s $ease--out-expo;
   }
