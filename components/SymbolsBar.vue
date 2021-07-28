@@ -118,9 +118,8 @@ export default {
     const scrollTrigger = {
       trigger: this.$refs.bar,
       start: 'top bottom',
-      end: 'bottom center',
-      scrub: 0.8,
-      once: true,
+      end: 'bottom top',
+      scrub: 2,
     }
     const tl = gsap.timeline({
       scrollTrigger,
@@ -177,7 +176,7 @@ export default {
         .to(
           bar.querySelector('.symbols-bar__icon--asterisk'),
           { rotate: '180deg' },
-          '<+=.1'
+          '<'
         )
         .from(
           bar.querySelector('.symbols-bar__icon--blackstar'),
