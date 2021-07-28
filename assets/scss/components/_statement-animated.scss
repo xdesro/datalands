@@ -66,6 +66,7 @@
     position: absolute;
     top: 9.5ch;
     right: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 115%, 0% 115%);
     // @include screen(486px) {
     //   top: 8ch;
     // }
