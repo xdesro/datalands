@@ -1,8 +1,8 @@
 <template>
-  <header class="intro" ref="intro">
+  <header ref="intro" class="intro">
     <div class="intro__clock">{{ now }}</div>
 
-    <script id="snoise-function" type="x-shader/x-vertex" ref="noise">
+    <script id="snoise-function" ref="noise" type="x-shader/x-vertex">
       vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
       vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
       vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
@@ -36,7 +36,7 @@
           return 130.0 * dot(m, g);
       }
     </script>
-    <script id="vertex-shader" type="x-shader/x-vertex" ref="vert">
+    <script id="vertex-shader" ref="vert" type="x-shader/x-vertex">
       uniform float u_time;
       uniform vec2 u_randomisePosition;
 
@@ -55,7 +55,7 @@
           gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
       }
     </script>
-    <script id="fragment-shader" type="x-shader/x-fragment" ref="frag">
+    <script id="fragment-shader" ref="frag" type="x-shader/x-fragment">
       vec3 rgb(float r, float g, float b) {
           return vec3(r / 255., g / 255., b / 255.);
       }
@@ -124,6 +124,8 @@
 
 <script>
 import * as THREE from 'three'
+import glslify from 'glslify'
+
 const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
@@ -134,14 +136,12 @@ const rgb = (r, g, b) => {
 const R = (x, y, t) => {
   return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t))
 }
-
 const G = (x, y, t) => {
   return Math.floor(
     192 +
       64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
   )
 }
-
 const B = (x, y, t) => {
   return Math.floor(
     192 +
@@ -182,6 +182,7 @@ export default {
     camera.position.z = 5
 
     const randomisePosition = new THREE.Vector2(1, 2)
+
     const sNoise = this.$refs.noise.textContent
     const geometry = new THREE.PlaneGeometry(
       window.innerWidth / 2,
