@@ -53,6 +53,23 @@
       padding-bottom: 3rem;
     }
   }
+  &__clock {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 0.8em;
+      height: 0.8em;
+      background-color: currentColor;
+      border-radius: 100%;
+      margin-right: 1rem;
+    }
+  }
   &__title {
     font-family: $font--display;
     margin-bottom: 1rem;

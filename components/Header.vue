@@ -1,5 +1,7 @@
 <template>
   <header class="intro" ref="intro">
+    <div class="intro__clock">{{ now }}</div>
+
     <script id="snoise-function" type="x-shader/x-vertex" ref="noise">
       vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
       vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -152,7 +154,13 @@ const B = (x, y, t) => {
 }
 export default {
   props: ['text'],
+  data() {
+    return {
+      now: '00:00:00 PM EST',
+    }
+  },
   mounted() {
+    setInterval(this.getNow, 1000)
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(
       this.$refs.intro.offsetWidth,
@@ -255,6 +263,13 @@ export default {
   },
   methods: {
     onResize() {},
+    getNow() {
+      const now = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        timeZoneName: 'short',
+      })
+      this.now = now
+    },
   },
 }
 </script>
