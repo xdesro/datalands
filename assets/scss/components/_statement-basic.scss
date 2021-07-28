@@ -14,6 +14,10 @@
   }
   &__title {
     margin-bottom: 10rem;
+    em {
+      font-style: normal;
+      font-family: $font--display;
+    }
   }
 
   &__footer {

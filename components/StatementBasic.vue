@@ -4,7 +4,11 @@
     :class="`statement-basic ${hidden ? 'statement-basic--hidden' : ''}`"
   >
     <div class="statement-basic__inner">
-      <h2 class="statement-basic__title" data-splitting="lines">
+      <h2
+        class="statement-basic__title"
+        data-splitting="lines"
+        v-html="renderedText"
+      >
         {{ slice.primary.main }}
       </h2>
       <footer class="statement-basic__footer" data-splitting="lines">
@@ -25,6 +29,13 @@ export default {
       hidden: false,
       observer: null,
     }
+  },
+  computed: {
+    renderedText() {
+      return this.$prismic
+        .asHtml(this.slice.primary.main_text)
+        .replace(/<\/?p*>|<.+[\W]>/g, '')
+    },
   },
   mounted() {
     this.hidden = true
