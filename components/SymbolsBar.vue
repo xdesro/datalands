@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="bar"
     :class="{
       'symbols-bar': true,
       'symbols-bar--heavy': slice.primary.style === 'Heavy symbols',
@@ -12,6 +13,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 30 9"
+          class="symbols-bar__icon symbols-bar__icon--dots"
         >
           <path
             d="M25.3901 8.83c2.2312 0 4.04-1.80877 4.04-4.04S27.6213.75 25.3901.75c-2.2312 0-4.04 1.80877-4.04 4.04s1.8088 4.04 4.04 4.04zM4.04 8.83c2.23123 0 4.04-1.80877 4.04-4.04S6.27123.75 4.04.75 0 2.55877 0 4.79s1.80877 4.04 4.04 4.04z"
@@ -21,6 +23,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 41 41"
+          class="symbols-bar__icon symbols-bar__icon--microstar"
         >
           <path
             fill-rule="evenodd"
@@ -32,6 +35,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 36 43"
+          class="symbols-bar__icon symbols-bar__icon--n"
         >
           <path
             d="M35.7599 42.7h-18.25V11.27h-6.54v26.28c0 2.84-2.30997 5.15-5.14997 5.15s-5.15-2.31-5.15-5.15V.97H19.9399V32.4h5.51V6.12c0-2.84 2.31-5.15 5.15-5.15 2.84 0 5.15 2.31 5.15 5.15V42.7h.01z"
@@ -41,6 +45,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 41 41"
+          class="symbols-bar__icon symbols-bar__icon--microstar"
         >
           <path
             fill-rule="evenodd"
@@ -54,6 +59,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 94 94"
+          class="symbols-bar__icon symbols-bar__icon--enneagram"
         >
           <path
             d="M46.61 16.32L62.79 0l2.07 23.07 22.73-1.94-13.02 19.02L93.21 53.5 71.2 59.57l5.83 22.4-20.71-9.72-9.71 20.96-9.72-20.96-20.7 9.72 5.83-22.4L0 53.5l18.64-13.35L5.62 21.13l22.73 1.94L30.42 0l16.19 16.32z"
@@ -63,25 +69,26 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 94 94"
+          class="symbols-bar__icon symbols-bar__icon--hemisphere"
         >
-          <path
-            d="M52.4201 46.79h41.12c0-25.84-20.78-46.79-46.42-46.79S.70007 20.95.70007 46.79H41.0801C18.1201 49.61.33008 69.31.33008 93.22H93.1701c0-23.91-17.79-43.61-40.75-46.43z"
-          />
+          <path d="M94 47a47 47 0 00-94 0h94z" />
+          <path d="M94 94a47 47 0 00-94 0h94z" />
         </svg>
         <svg
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 93 94"
+          class="symbols-bar__icon symbols-bar__icon--asterisk"
         >
           <path
             d="M92.6299 37.3l-3.32-10.19-28.63 9.3 17.69-24.36-8.67-6.3-17.7 24.36V0h-10.72v30.11l-17.69-24.36-8.68 6.3 17.7 24.36-28.63-9.3L.65991 37.3l28.63999 9.31-28.63999 9.3 3.31999 10.2 28.63-9.31-17.7 24.36 8.68 6.3 17.69-24.36v30.11h10.72V63.1l17.7 24.36 8.67-6.3-17.69-24.36 28.63 9.31 3.32-10.2-28.64-9.3 28.64-9.31z"
           />
         </svg>
-
         <svg
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 102 94"
+          class="symbols-bar__icon symbols-bar__icon--blackstar"
         >
           <path
             d="M0 46.61C23.84 39.29 42.68 21.95 50.62 0c7.95 21.95 26.79 39.29 50.62 46.61-23.84 7.32-42.68 24.66-50.62 46.61C42.68 71.27 23.84 53.92 0 46.61z"
@@ -93,10 +100,93 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 export default {
   name: 'SymbolsBar',
   props: {
     slice: Object,
+  },
+  data() {
+    return {
+      simple: this.slice.primary.style === 'Small symbols',
+    }
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    const scrollTrigger = {
+      trigger: this.$refs.bar,
+      start: 'top bottom',
+      end: 'bottom center',
+      scrub: 0.8,
+      once: true,
+    }
+    const tl = gsap.timeline({
+      scrollTrigger,
+    })
+    const { bar } = this.$refs
+    if (this.simple) {
+      tl.to(bar.querySelector('.symbols-bar__icon--dots'), {
+        rotateZ: '180deg',
+      })
+        .to(
+          bar.querySelector('.symbols-bar__icon--microstar:nth-child(2)'),
+          { rotate: '450deg' },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--n'),
+          { rotateX: '180deg' },
+          '<+=.1'
+        )
+        .to(
+          bar.querySelector('.symbols-bar__icon--microstar:nth-child(4)'),
+          { rotate: '270deg' },
+          '<+=.1'
+        )
+    } else {
+      tl.to(bar.querySelector('.symbols-bar__icon--enneagram'), {
+        rotate: '80deg',
+      })
+        .from(
+          bar.querySelector('.symbols-bar__icon--hemisphere'),
+          {
+            rotate: '180deg',
+            transformOrigin: '50% 50%',
+          },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector(
+            '.symbols-bar__icon--hemisphere path:nth-of-type(1)'
+          ),
+          {
+            y: '50%',
+          }
+        )
+        .from(
+          bar.querySelector(
+            '.symbols-bar__icon--hemisphere path:nth-of-type(2)'
+          ),
+          {
+            y: '-50%',
+          },
+          '<'
+        )
+        .to(
+          bar.querySelector('.symbols-bar__icon--asterisk'),
+          { rotate: '180deg' },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--blackstar'),
+          {
+            rotate: '270deg',
+          },
+          '<+=.1'
+        )
+    }
   },
 }
 </script>
