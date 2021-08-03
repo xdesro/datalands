@@ -82,7 +82,12 @@ export default {
   methods: {
     handleObserve(entries) {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio === 1) {
+        const entryIsLeaving =
+          entry.target.offsetTop - window.scrollY < window.innerHeight / 2
+        if (
+          (entry.isIntersecting && entry.intersectionRatio === 1) ||
+          entryIsLeaving
+        ) {
           this.hidden = false
         } else {
           this.hidden = true
