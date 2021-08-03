@@ -1,6 +1,7 @@
 <template>
   <section
-    :class="`case-study${hidden ? ' case-study--hidden' : ''}`"
+    :class="`case-study${hidden ? ' case-study--hidden' : ''}
+    ${slides.length > 1 ? ' case-study--has-slides' : ''}`"
     :style="`--background: ${slice.primary.highlight_color};`"
   >
     <div class="case-study__slides">

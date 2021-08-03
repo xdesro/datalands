@@ -121,6 +121,22 @@
     @include screen(sm) {
       grid-template-columns: 1fr 1fr;
     }
+    .case-study--has-slides & {
+      @media (pointer: coarse) {
+        position: relative;
+        &:before {
+          font-family: $font--text-accent;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          content: '(Swipe for more) →';
+          position: absolute;
+          top: -1.2rem;
+          background-color: var(--background);
+          padding: 0.2rem 0.5rem;
+          right: 0;
+        }
+      }
+    }
   }
   &__meta-tag {
     text-transform: uppercase;
