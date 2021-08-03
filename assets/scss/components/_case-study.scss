@@ -9,8 +9,21 @@
     // height: 24rem;
     width: 100vw;
     height: calc(100vw / var(--aspect-ratio));
+    cursor: initial;
 
-    --aspect-ratio: (818 / 386);
+    --aspect-ratio: (3 / 2);
+    @include screen(md) {
+      --aspect-ratio: (818 / 386);
+    }
+
+    @media (pointer: coarse) {
+      display: flex;
+      cursor: grab;
+
+      scroll-snap-type: mandatory;
+      scroll-snap-points-y: repeat(100vw);
+      scroll-snap-type: x mandatory;
+    }
   }
   &__slide-container {
     $transition-timing-function: $ease--in-out-circ;
@@ -19,9 +32,12 @@
     position: absolute;
     overflow: hidden;
     width: 100vw;
+    height: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     &-enter {
       clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
@@ -55,24 +71,44 @@
       }
     }
   }
+  &__slide-mobile {
+    width: 100vw;
+    pointer-events: none;
+
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    @media (pointer: fine) {
+      display: none;
+    }
+  }
+  &__slide {
+    display: none;
+    @media (pointer: fine) {
+      display: block;
+    }
+  }
   &__slide-action {
     position: absolute;
     z-index: 2;
     right: 0;
     bottom: 0;
     width: 6rem;
+    width: 11vw;
     padding: 2vw 2vw 2.5vw;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    width: 11vw;
     @supports (mix-blend-mode: exclusion) {
-      mix-blend-mode: exclusion;
       color: $color--contrast;
+      mix-blend-mode: exclusion;
+    }
+    @media (pointer: coarse) {
+      display: none;
     }
   }
   &__meta {
     @include container;
+
     font-size: 1.5rem;
     line-height: 1.125;
     display: grid;
@@ -95,13 +131,12 @@
   }
   .word,
   &__meta-tag {
-    clip-path: polygon(0 0, 100% 0, 100% 115%, 0 115%);
-    transform: translateY(0);
     transition: all 0.8s $ease--out-expo;
+    transform: translateY(0);
+    clip-path: polygon(0 0, 100% 0, 100% 115%, 0 115%);
   }
   .word {
     display: inline-block;
-
     transition-delay: calc(var(--line-index) * 0.1s);
   }
   &--hidden {

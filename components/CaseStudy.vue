@@ -4,6 +4,13 @@
     :style="`--background: ${slice.primary.highlight_color};`"
   >
     <div class="case-study__slides">
+      <img
+        v-for="(slide, index) in slides"
+        :key="index"
+        :src="slide.url"
+        class="case-study__slide-mobile"
+      />
+
       <transition name="case-study__slide-container">
         <div :key="slide.url" class="case-study__slide-container">
           <img :src="slide.url" class="case-study__slide" />
