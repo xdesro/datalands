@@ -1,5 +1,10 @@
 .case-study {
   color: $color--contrast;
+
+  --aspect-ratio: (3 / 2);
+  @include screen(md) {
+    --aspect-ratio: (818 / 386);
+  }
   &__slides {
     position: relative;
     display: grid;
@@ -10,11 +15,6 @@
     width: 100vw;
     height: calc(100vw / var(--aspect-ratio));
     cursor: initial;
-
-    --aspect-ratio: (3 / 2);
-    @include screen(md) {
-      --aspect-ratio: (818 / 386);
-    }
 
     @media (pointer: coarse) {
       display: flex;
@@ -72,8 +72,8 @@
   }
   &__slide-mobile {
     width: 100vw;
-    pointer-events: none;
     object-fit: cover;
+    pointer-events: none;
 
     flex-shrink: 0;
     scroll-snap-align: start;
@@ -108,6 +108,15 @@
       display: none;
     }
   }
+  &__embed {
+    overflow: hidden;
+    width: 100vw;
+    height: calc(100vw / var(--aspect-ratio));
+  }
+  &__embed-frame {
+    width: 100%;
+    height: 100%;
+  }
   &__meta {
     @include container;
 
@@ -127,13 +136,13 @@
         &:before {
           font-family: $font--text-accent;
           font-size: 0.75rem;
-          text-transform: uppercase;
-          content: '(Swipe for more)';
           position: absolute;
           top: -1.2rem;
-          background-color: var(--background);
-          padding: 0.2rem 0.5rem;
           right: 0;
+          padding: 0.2rem 0.5rem;
+          content: '(Swipe for more)';
+          text-transform: uppercase;
+          background-color: var(--background);
         }
       }
     }

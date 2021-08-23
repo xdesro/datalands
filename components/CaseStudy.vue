@@ -4,7 +4,13 @@
     ${slides.length > 1 ? ' case-study--has-slides' : ''}`"
     :style="`--background: ${slice.primary.highlight_color};`"
   >
-    <div class="case-study__slides">
+    <div
+      class="case-study__slides"
+      v-if="
+        !slice.primary.vimeo_id ||
+        (slice.primary.vimeo_id.length === 0 && slides.length > 1)
+      "
+    >
       <img
         v-for="(slide, index) in slides"
         :key="index"
@@ -25,7 +31,18 @@
         <ArrowButton class="case-study__slide-action-icon" />
       </button>
     </div>
-    <div class="case-study__meta" ref="meta">
+    <div v-else class="case-study__embed">
+      <iframe
+        class="case-study__embed-frame"
+        :src="`https://player.vimeo.com/video/${slice.primary.vimeo_id}?autoplay=1&loop=1&muted=1&background=1`"
+        width="1600"
+        autoplay="true"
+        allow="autoplay"
+        height="800"
+        frameborder="0"
+      ></iframe>
+    </div>
+    <div ref="meta" class="case-study__meta">
       <dl>
         <div class="case-study__meta-tag">
           <dt class="visually-hidden">Client:</dt>
