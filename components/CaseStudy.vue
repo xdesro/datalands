@@ -4,20 +4,13 @@
     ${slides.length > 1 ? ' case-study--has-slides' : ''}`"
     :style="`--background: ${slice.primary.highlight_color};`"
   >
-    <div
-      class="case-study__slides"
-      v-if="
-        !slice.primary.vimeo_id ||
-        (slice.primary.vimeo_id.length === 0 && slides.length > 1)
-      "
-    >
+    <div v-if="!slice.primary.vimeo_id" class="case-study__slides">
       <img
         v-for="(slide, index) in slides"
         :key="index"
         :src="slide.url"
         class="case-study__slide-mobile"
       />
-
       <transition name="case-study__slide-container">
         <div :key="slide.url" class="case-study__slide-container">
           <img :src="slide.url" class="case-study__slide" />
@@ -34,11 +27,12 @@
     <div v-else class="case-study__embed">
       <iframe
         class="case-study__embed-frame"
-        :src="`https://player.vimeo.com/video/${slice.primary.vimeo_id}?autoplay=1&loop=1&muted=1&background=1`"
-        width="1600"
+        :src="`https://player.vimeo.com/video/${slice.primary.vimeo_id}?h=bc36dd41eb&autoplay=1&loop=1&muted=1&background=1`"
+        width="640"
+        height="297"
         autoplay="true"
-        allow="autoplay"
-        height="800"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
         frameborder="0"
       ></iframe>
     </div>

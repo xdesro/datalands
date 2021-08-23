@@ -8,8 +8,7 @@
   &__slides {
     position: relative;
     display: grid;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: hidden;
     grid-auto-flow: column;
     // height: 24rem;
     width: 100vw;
@@ -19,6 +18,8 @@
     @media (pointer: coarse) {
       display: flex;
       cursor: grab;
+      overflow-y: hidden;
+      overflow-x: scroll;
 
       scroll-snap-type: mandatory;
       scroll-snap-points-y: repeat(100vw);
