@@ -112,7 +112,10 @@
   &__embed {
     overflow: hidden;
     width: 100vw;
-    height: calc(100vw / var(--aspect-ratio));
+    height: calc(100vw / (818 / 386));
+    @include screen(md) {
+      height: calc(100vw / var(--aspect-ratio));
+    }
   }
   &__embed-frame {
     width: 100%;

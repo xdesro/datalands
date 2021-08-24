@@ -28,8 +28,6 @@
       <iframe
         class="case-study__embed-frame"
         :src="`https://player.vimeo.com/video/${slice.primary.vimeo_id}?h=bc36dd41eb&autoplay=1&loop=1&muted=1&background=1`"
-        width="640"
-        height="297"
         autoplay="true"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
