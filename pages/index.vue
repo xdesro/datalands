@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Header :text="page.intro_text" />
-
+    <Header :text="page.intro_text" :logo="page.intro_logo" />
     <SliceZone
       :slices="page.body"
       :resolver="({ sliceName }) => slices[sliceName]"
@@ -36,12 +35,61 @@ export default {
     if (document) {
       return {
         page: document.data,
-        // page: document.data.body.filter(
-        //   (slice) => slice.slice_type === 'statement_basic'
-        // ),
       }
     } else {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  head() {
+    return {
+      title: this.page.seo_title,
+      meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.page.seo_title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.page.seo_description,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.page.seo_image.url,
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.page.seo_title,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.page.seo_title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.page.seo_description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.page.seo_image.url,
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.page.seo_image.url,
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.page.seo_title,
+        },
+      ],
     }
   },
   data() {

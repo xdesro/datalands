@@ -2,20 +2,21 @@
   font-size: 2rem;
   padding: 3rem 1rem 10rem;
   border-bottom: 1px solid currentColor;
+  background-repeat: no-repeat;
+  background-position: 5rem calc(100% - 5rem); // background-image: url();
   background-size: 0 0;
+
   @include screen(sm) {
     background-size: 5rem 7rem;
   }
-  background-repeat: no-repeat;
-  background-position: 5rem calc(100% - 5rem); // background-image: url();
   &__inner {
     @include container;
   }
   &__header {
+    font-family: $font--text-accent;
     font-size: 1.5rem;
     margin-bottom: 5rem;
     text-transform: uppercase;
-    font-family: $font--text-accent;
     &:after {
       margin-left: 2rem;
       content: '↓';
@@ -24,6 +25,7 @@
   &__content {
     line-height: 1.125;
     text-align: center;
+
     @include screen(sm) {
       font-size: 3rem;
     }
@@ -33,22 +35,27 @@
     p + p {
       margin-top: 1em;
     }
+    em {
+      font-family: $font--display;
+      font-size: 0.5em;
+      font-style: normal;
+      display: block;
+    }
     a {
       position: relative;
       display: inline-block;
       &:after {
-        content: '';
         position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
         display: block;
         height: 0.07em;
-        background-color: currentColor;
-        left: 0;
-        right: 0;
-        top: 100%;
-        transform-origin: 100% 0;
-
-        transform: scaleX(0);
+        content: '';
         transition: transform 0.4s $ease--in-out;
+        transform: scaleX(0);
+        transform-origin: 100% 0;
+        background-color: currentColor;
       }
       &:hover,
       &:focus {
