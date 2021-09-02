@@ -1,5 +1,5 @@
 .section-simple {
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 3rem 1rem 10rem;
   border-bottom: 1px solid currentColor;
   background-repeat: no-repeat;
@@ -23,10 +23,11 @@
     }
   }
   &__content {
-    line-height: 1.125;
+    line-height: 1.5;
     text-align: center;
 
     @include screen(sm) {
+      line-height: 1.125;
       font-size: 3rem;
     }
     @include screen(md) {
@@ -37,9 +38,12 @@
     }
     em {
       font-family: $font--display;
-      font-size: 0.5em;
       font-style: normal;
       display: block;
+      font-size: 0.8em;
+      @include screen(sm) {
+        font-size: 0.5em;
+      }
     }
     a {
       position: relative;
