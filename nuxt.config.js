@@ -16,6 +16,8 @@ export default {
         name: 'description',
         content: 'An independent creative studio shaping complex ideas.',
       },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@wearedatalands' },
     ],
     link: [
       // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
