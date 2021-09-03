@@ -103,7 +103,8 @@
     </div>
     <div class="intro__logo">
       <!-- {{ logo }} -->
-      <img :src="`${logo.url}&lossless=1`" />
+      <lottie :options="lottieOptions" v-on:animCreated="handleAnimation" />
+      <!-- <img :src="`${logo.url}&lossless=1`" /> -->
       <!-- <svg
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -126,11 +127,12 @@
 
 <script>
 import * as THREE from 'three'
+import lottie from 'vue-lottie/src/lottie.vue'
+import * as animationData from '~/assets/lottie.json'
 
 const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
-
 const rgb = (r, g, b) => {
   return new THREE.Vector3(r, g, b)
 }
@@ -154,10 +156,15 @@ const B = (x, y, t) => {
   )
 }
 export default {
+  components: {
+    lottie,
+  },
   props: ['text', 'logo'],
   data() {
     return {
       now: '00:00:00 PM EST',
+      anim: null,
+      lottieOptions: { animationData: animationData.default },
     }
   },
   mounted() {
@@ -276,6 +283,9 @@ export default {
         timeZoneName: 'short',
       })
       this.now = now
+    },
+    handleAnimation(anim) {
+      this.anim = anim
     },
   },
 }
