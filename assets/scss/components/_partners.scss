@@ -1,16 +1,16 @@
 .partners {
   font-size: 1.5rem;
+  position: relative;
+  z-index: -1;
   overflow: hidden;
   width: 100vw;
-  padding: 3rem 1rem;
   margin-bottom: -5rem;
-  z-index: -1;
-  position: relative;
+  padding: 3rem 0;
 
   @include screen(sm) {
-    padding-left: 0;
-    padding-right: 0;
     font-size: 3rem;
+    padding-right: 0;
+    padding-left: 0;
   }
   &__inner {
     @include container;
@@ -25,13 +25,12 @@
   &__slider {
     display: grid;
     grid-auto-flow: column;
-    padding: 21rem 0;
     align-items: center;
     width: 100%;
+    padding: 21rem 0;
   }
   &__logo-container {
     position: relative;
-
     margin-right: 7rem;
 
     @include screen(sm) {

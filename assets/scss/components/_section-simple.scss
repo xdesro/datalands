@@ -1,12 +1,15 @@
 .section-simple {
   font-size: 1.5rem;
-  padding: 3rem 1rem 10rem;
+  padding: 3rem 0 5rem;
   border-bottom: 1px solid currentColor;
   background-repeat: no-repeat;
   background-position: 5rem calc(100% - 5rem); // background-image: url();
   background-size: 0 0;
 
   @include screen(sm) {
+    padding-right: 1rem;
+    padding-bottom: 10rem;
+    padding-left: 1rem;
     background-size: 5rem 7rem;
   }
   &__inner {
@@ -27,8 +30,8 @@
     text-align: center;
 
     @include screen(sm) {
-      line-height: 1.125;
       font-size: 3rem;
+      line-height: 1.125;
     }
     @include screen(md) {
       font-size: 4.5rem;
@@ -38,9 +41,10 @@
     }
     em {
       font-family: $font--display;
+      font-size: 0.8em;
       font-style: normal;
       display: block;
-      font-size: 0.8em;
+
       @include screen(sm) {
         font-size: 0.5em;
       }

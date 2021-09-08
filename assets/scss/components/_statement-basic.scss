@@ -1,13 +1,12 @@
 .statement-basic {
   font-size: 1.5rem;
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   color: $color--contrast;
   background-color: $color--neutral;
 
   @include screen(sm) {
     font-size: 3rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding: 5rem 1rem;
   }
   &__inner {
     @include container;
@@ -15,25 +14,28 @@
   &__title {
     margin-bottom: 10rem;
     em {
-      font-style: normal;
       font-family: $font--display;
+      font-style: normal;
     }
   }
 
   &__footer {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1;
-    text-transform: uppercase;
     max-width: 14ch;
+    text-transform: uppercase;
+
+    @include screen(sm) {
+      font-size: 1.25rem;
+    }
   }
   .word {
-    clip-path: polygon(0 0, 100% 0, 100% 115%, 0 115%);
-    transform: translateY(0);
     transition: all 0.8s $ease--out-expo;
+    transform: translateY(0);
+    clip-path: polygon(0 0, 100% 0, 100% 115%, 0 115%);
   }
   .word {
     display: inline-block;
-
     transition-delay: calc(var(--line-index) * 0.1s);
   }
   &--hidden {

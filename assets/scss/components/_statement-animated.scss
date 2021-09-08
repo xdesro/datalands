@@ -1,16 +1,20 @@
 .statement-animated {
   font-size: 1.5rem;
-  padding: 3rem 1rem;
+  padding: 3rem 0;
+
   @include screen(sm) {
     font-size: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
   &__inner {
     @include container;
   }
   &__title {
+    position: relative;
     max-width: 23ch;
     margin-bottom: 15rem;
-    position: relative;
+
     @include screen(lg) {
       margin-bottom: 28rem;
     }
@@ -18,6 +22,7 @@
   &__title-wrapped {
     display: inline-block;
     max-width: 9ch;
+
     @include screen(540px) {
       max-width: 11ch;
     }
@@ -26,15 +31,16 @@
     }
   }
   &__svg {
-    --percent-complete: 0;
-    display: inline-block;
-    width: 6ch;
-    padding-right: 1ch;
-    stroke-width: 4;
     position: absolute;
     // top: 5.5ch;
     top: 4.5ch;
     right: 0;
+    display: inline-block;
+    width: 6ch;
+    padding-right: 1ch;
+
+    --percent-complete: 0;
+    stroke-width: 4;
     // stroke-width: 4;
     // stroke-dasharray: 33rem;
     // stroke-dashoffset: 33rem;
@@ -43,8 +49,8 @@
       top: 3.5ch;
     }
     @include screen(sm) {
-      padding-right: 1.5ch;
       top: 3.3ch;
+      padding-right: 1.5ch;
     }
     //   // top: 4ch;
     //   top: 0;
@@ -54,22 +60,24 @@
       top: 2ch;
     }
     @include screen(lg) {
-      padding-right: 0;
-      stroke-width: 3;
       width: 28rem;
       margin-right: 4rem;
+      padding-right: 0;
+
+      stroke-width: 3;
     }
   }
   &__positioned {
-    display: block;
-    text-align: right;
     position: absolute;
     top: 9.5ch;
     right: 0;
+    display: block;
+    text-align: right;
     clip-path: polygon(0% 0%, 100% 0%, 100% 115%, 0% 115%);
     // @include screen(486px) {
     //   top: 8ch;
     // }
+
     @include screen(540px) {
       top: 8.5ch;
     }
@@ -86,9 +94,13 @@
   }
 
   &__footer {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1;
     max-width: 15ch;
     text-transform: uppercase;
+
+    @include screen(sm) {
+      font-size: 1.25rem;
+    }
   }
 }

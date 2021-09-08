@@ -17,9 +17,9 @@
 
     @media (pointer: coarse) {
       display: flex;
-      cursor: grab;
-      overflow-y: hidden;
       overflow-x: scroll;
+      overflow-y: hidden;
+      cursor: grab;
 
       scroll-snap-type: mandatory;
       scroll-snap-points-y: repeat(100vw);
@@ -113,6 +113,7 @@
     overflow: hidden;
     width: 100vw;
     height: calc(100vw / (818 / 386));
+
     @include screen(md) {
       height: calc(100vw / var(--aspect-ratio));
     }
@@ -124,14 +125,16 @@
   &__meta {
     @include container;
 
-    font-size: 1.5rem;
-    line-height: 1.125;
+    font-size: 1.25rem;
+    line-height: 1.3;
     display: grid;
     grid-row-gap: 2rem;
     justify-content: space-between;
     padding: 3rem 1rem;
 
     @include screen(sm) {
+      font-size: 1.5rem;
+      line-height: 1.125;
       grid-template-columns: 1fr 1fr;
     }
     .case-study--has-slides & {
