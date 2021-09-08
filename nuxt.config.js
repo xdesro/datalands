@@ -27,11 +27,7 @@ export default {
   },
   css: ['~/assets/scss/style.scss'],
   components: true,
-  buildModules: [
-    // '@nuxtjs/eslint-module',
-    // '@nuxtjs/stylelint-module',
-    '@nuxtjs/prismic',
-  ],
+  buildModules: ['@nuxtjs/prismic'],
   build: {
     transpile: ['vue-slicezone'],
   },

@@ -3,7 +3,7 @@
   padding: 3rem 0 5rem;
   border-bottom: 1px solid currentColor;
   background-repeat: no-repeat;
-  background-position: 5rem calc(100% - 5rem); // background-image: url();
+  background-position: 5rem calc(100% - 5rem);
   background-size: 0 0;
 
   @include screen(sm) {

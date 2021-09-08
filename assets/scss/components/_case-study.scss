@@ -10,7 +10,6 @@
     display: grid;
     overflow: hidden;
     grid-auto-flow: column;
-    // height: 24rem;
     width: 100vw;
     height: calc(100vw / var(--aspect-ratio));
     cursor: initial;

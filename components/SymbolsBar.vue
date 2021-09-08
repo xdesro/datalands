@@ -215,8 +215,8 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+// import { gsap } from 'gsap'
+// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
   name: 'SymbolsBar',
