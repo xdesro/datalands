@@ -166,6 +166,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 39 44"
+          class="symbols-bar__icon symbols-bar__icon--hammer"
         >
           <path d="M38.6 0H0v16.7h9.2a15.5 15.5 0 1020.2 0h9.2V0z" />
         </svg>
@@ -173,11 +174,12 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 49 44"
+          class="symbols-bar__icon symbols-bar__icon--boxtop"
         >
-          <path d="M39.7 0L26.6 11l9.1 11L49 11 39.7 0z" />
-          <path d="M13.3 22L.3 33l9 11 13.2-11-9.2-11z" />
-          <path d="M35.7 22L22.6 33l9.2 11 13-11-9-11z" />
-          <path d="M17.3 0L4.2 11l9.2 11 13-11-9-11z" />
+          <path d="M17 0 4 11l9 11 13-11-9-11z" />
+          <path d="M39 0 26 11l9 11 13-11-9-11z" />
+          <path d="M35 22 22 33l9 11 13-11-9-11z" />
+          <path d="M13 22 0 33l9 11 13-11-9-11z" />
         </svg>
         <svg
           fill="currentColor"
@@ -193,6 +195,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 44"
+          class="symbols-bar__icon symbols-bar__icon--bandolier"
         >
           <path
             d="M7.2 44c3.3 0 6.8-3.8 9.3-9.5.9 5.8 3.3 9.5 6.6 9.5s6.8-3.8 9.3-9.5c.9 5.8 3.3 9.5 6.6 9.5s6.8-3.8 9.3-9.5c.9 5.8 3.3 9.5 6.6 9.5s6.8-3.8 9.3-9.5c.9 5.8 3.3 9.5 6.6 9.5s6.8-3.8 9.3-9.5c.9 5.8 3.3 9.5 6.6 9.5 5.3 0 11.1-9.8 12.8-22 1.7-12.1-1.2-22-6.6-22-3.3 0-6.8 3.8-9.3 9.5C82.7 3.7 80.3 0 77 0s-6.8 3.8-9.3 9.5C66.8 3.7 64.4 0 61.1 0s-6.8 3.8-9.3 9.5C51 3.8 48.6 0 45.3 0S38.5 3.8 36 9.5C35 3.8 32.6 0 29.3 0 26 0 22.5 3.8 20 9.5 19.1 3.7 16.7 0 13.4 0 8.1 0 2.3 9.8.6 22c-1.7 12.1 1.2 22 6.6 22z"
@@ -202,6 +205,7 @@
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 44 44"
+          class="symbols-bar__icon symbols-bar__icon--flora"
         >
           <path
             fill-rule="evenodd"
@@ -215,8 +219,8 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
   name: 'SymbolsBar',
@@ -229,78 +233,138 @@ export default {
     }
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
-    // const scrollTrigger = {
-    //   trigger: this.$refs.bar,
-    //   start: 'top bottom',
-    //   end: 'bottom top',
-    //   scrub: 2,
-    // }
-    // const tl = gsap.timeline({
-    //   scrollTrigger,
-    // })
-    // const { bar } = this.$refs
-    // if (this.simple) {
-    //   tl.to(bar.querySelector('.symbols-bar__icon--dots'), {
-    //     rotateZ: '180deg',
-    //   })
-    //     .to(
-    //       bar.querySelector('.symbols-bar__icon--microstar:nth-child(2)'),
-    //       { rotate: '450deg' },
-    //       '<+=.1'
-    //     )
-    //     .from(
-    //       bar.querySelector('.symbols-bar__icon--n'),
-    //       { rotateX: '180deg' },
-    //       '<+=.1'
-    //     )
-    //     .to(
-    //       bar.querySelector('.symbols-bar__icon--microstar:nth-child(4)'),
-    //       { rotate: '270deg' },
-    //       '<+=.1'
-    //     )
-    // } else {
-    //   tl.to(bar.querySelector('.symbols-bar__icon--enneagram'), {
-    //     rotate: '80deg',
-    //   })
-    //     .from(
-    //       bar.querySelector('.symbols-bar__icon--hemisphere'),
-    //       {
-    //         rotate: '180deg',
-    //         transformOrigin: '50% 50%',
-    //       },
-    //       '<+=.1'
-    //     )
-    //     .from(
-    //       bar.querySelector(
-    //         '.symbols-bar__icon--hemisphere path:nth-of-type(1)'
-    //       ),
-    //       {
-    //         y: '50%',
-    //       }
-    //     )
-    //     .from(
-    //       bar.querySelector(
-    //         '.symbols-bar__icon--hemisphere path:nth-of-type(2)'
-    //       ),
-    //       {
-    //         y: '-50%',
-    //       },
-    //       '<'
-    //     )
-    //     .to(
-    //       bar.querySelector('.symbols-bar__icon--asterisk'),
-    //       { rotate: '180deg' },
-    //       '<'
-    //     )
-    //     .from(
-    //       bar.querySelector('.symbols-bar__icon--blackstar'),
-    //       {
-    //         rotate: '270deg',
-    //       },
-    //       '<+=.1'
-    //     )
-    // }
+    gsap.registerPlugin(ScrollTrigger)
+    const scrollTrigger = {
+      trigger: this.$refs.bar,
+      start: 'top bottom',
+      end: 'bottom middle',
+      scrub: 2,
+    }
+    const tl = gsap.timeline({
+      scrollTrigger,
+    })
+    const { bar } = this.$refs
+    const { style } = this.slice.primary
+    const styleName = style.toLowerCase()
+    if (styleName.includes('small')) {
+      tl.to(bar.querySelector('.symbols-bar__icon--dots'), {
+        rotateZ: '180deg',
+      })
+        .to(
+          bar.querySelector('.symbols-bar__icon--microstar:nth-child(2)'),
+          { rotate: '450deg' },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--n'),
+          { rotateX: '180deg' },
+          '<+=.1'
+        )
+        .to(
+          bar.querySelector('.symbols-bar__icon--microstar'),
+          { rotate: '270deg' },
+          '<+=.1'
+        )
+    } else if (styleName.includes('filled')) {
+      tl.to(bar.querySelector('.symbols-bar__icon--enneagram'), {
+        rotate: '80deg',
+      })
+        .from(
+          bar.querySelector('.symbols-bar__icon--hemisphere'),
+          {
+            rotate: '180deg',
+            transformOrigin: '50% 50%',
+          },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector(
+            '.symbols-bar__icon--hemisphere path:nth-of-type(1)'
+          ),
+          {
+            y: '50%',
+          }
+        )
+        .from(
+          bar.querySelector(
+            '.symbols-bar__icon--hemisphere path:nth-of-type(2)'
+          ),
+          {
+            y: '-50%',
+          },
+          '<'
+        )
+        .to(
+          bar.querySelector('.symbols-bar__icon--asterisk'),
+          { rotate: '180deg' },
+          '<'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--blackstar'),
+          {
+            rotate: '270deg',
+          },
+          '<+=.1'
+        )
+    } else if (styleName.includes('outlined')) {
+      tl.to(
+        bar.querySelector('.symbols-bar__icon--asterisk'),
+        { rotate: '180deg' },
+        '<'
+      )
+      // symbols-bar__icon--asterisk
+      // symbols-bar__icon--dodecagon
+      // symbols-bar__icon--ex
+      // symbols-bar__icon--blackstar
+    } else if (styleName.includes('five')) {
+      tl.from(bar.querySelector('.symbols-bar__icon--hammer'), {
+        rotate: '-90deg',
+      })
+        .from(
+          bar.querySelector('.symbols-bar__icon--boxtop path:nth-child(1)'),
+          {
+            x: 11,
+            y: 11,
+          },
+          '<+=.2'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--boxtop path:nth-child(3)'),
+          {
+            x: -11,
+            y: -11,
+          },
+          '<'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--boxtop path:nth-child(2)'),
+          {
+            x: -11,
+            y: 11,
+          }
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--boxtop path:nth-child(4)'),
+          {
+            x: 11,
+            y: -11,
+          },
+          '<'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--n'),
+          { rotateX: '180deg' },
+          '<+=.1'
+        )
+        .from(
+          bar.querySelector('.symbols-bar__icon--bandolier'),
+          { rotateY: '90deg' },
+          '<+=.1'
+        )
+        .from(bar.querySelector('.symbols-bar__icon--flora'), {
+          rotate: '-135deg',
+        })
+    }
   },
 }
 </script>
