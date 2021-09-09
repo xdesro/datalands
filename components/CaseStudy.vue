@@ -13,13 +13,18 @@
       />
       <transition name="case-study__slide-container">
         <div :key="slide.url" class="case-study__slide-container">
-          <img :src="slide.url" class="case-study__slide" />
+          <img
+            :src="slide.url"
+            class="case-study__slide"
+            :alt="slide.alt || ''"
+          />
         </div>
       </transition>
       <button
         v-if="slides.length > 1"
         class="case-study__slide-action"
         @click="incrementSlide"
+        aria-label="go to next slide"
       >
         <ArrowButton class="case-study__slide-action-icon" />
       </button>

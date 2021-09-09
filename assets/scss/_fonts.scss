@@ -4,6 +4,7 @@
     url('/fonts/Surt-Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Surt Light Expanded';
@@ -11,6 +12,7 @@
     url('/fonts/Surt-LightExp.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -19,4 +21,5 @@
     url('/fonts/Apoc-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
