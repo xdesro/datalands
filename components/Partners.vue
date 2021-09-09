@@ -14,7 +14,7 @@
           :key="`${alt}${index}`"
           class="partners__logo-container"
         >
-          <img :src="url" class="partners__logo" />
+          <img :src="url" class="partners__logo" :alt="alt || ''" />
         </div>
       </div>
     </MarqueeEl>

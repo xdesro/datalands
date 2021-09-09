@@ -6,11 +6,11 @@
   >
     <div v-if="!slice.primary.vimeo_id" class="case-study__slides">
       <img
-        v-for="(slide, index) in slides"
+        v-for="(mobileSlide, index) in slides"
         :key="index"
-        :src="slide.url"
+        :src="mobileSlide.url"
         class="case-study__slide-mobile"
-        :alt="slide.alt || ''"
+        :alt="mobileSlide.alt || ''"
       />
       <transition name="case-study__slide-container">
         <div :key="slide.url" class="case-study__slide-container">
@@ -24,8 +24,8 @@
       <button
         v-if="slides.length > 1"
         class="case-study__slide-action"
-        @click="incrementSlide"
         aria-label="go to next slide"
+        @click="incrementSlide"
       >
         <ArrowButton class="case-study__slide-action-icon" />
       </button>
