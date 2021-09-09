@@ -10,6 +10,7 @@
         :key="index"
         :src="slide.url"
         class="case-study__slide-mobile"
+        :alt="slide.alt || ''"
       />
       <transition name="case-study__slide-container">
         <div :key="slide.url" class="case-study__slide-container">
