@@ -101,7 +101,6 @@
     font-family: $font--text-accent;
     font-size: 2rem;
     line-height: 1;
-    letter-spacing: -1em;
 
     @include screen(sm) {
       max-width: 20ch;
