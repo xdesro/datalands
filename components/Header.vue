@@ -96,7 +96,7 @@
       }
     </script>
     <div class="intro__container">
-      <h1 class="intro__title">Datalands</h1>
+     <h1 class="intro__title">Data<span>l</span>and<span>s</span></h1>
       <p class="intro__headline">
         {{ text }}
       </p>
