@@ -13,3 +13,7 @@ h2 {
 h1.intro__title {
   letter-spacing: -3px; 
 }
+
+.intro__title span {
+    font-feature-settings: "ss01" on;
+}
