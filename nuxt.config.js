@@ -27,7 +27,8 @@ export default {
   },
   css: ['~/assets/scss/style.scss'],
   components: true,
-  buildModules: ['@nuxtjs/prismic'],
+  buildModules: ['@nuxtjs/prismic',
+                 '@nuxtjs/google-analytics'],
   build: {
     transpile: ['vue-slicezone'],
   },
